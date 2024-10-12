@@ -10,4 +10,4 @@ spec:
   - port: 5100
     targetPort: 5100
   selector:
-    app: background-remover-python-app
+    app: background-remover-python-appgit commit
