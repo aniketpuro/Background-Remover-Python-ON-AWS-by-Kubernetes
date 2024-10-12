@@ -76,7 +76,7 @@ terraform apply
 This will set up the necessary AWS infrastructure, including an EKS cluster for running Kubernetes.
 
 6. Set Up Jenkins Pipeline
-Configure Jenkins with the provided JenkinsPipelineScript.sh for automated CI/CD.
+Configure Jenkins with the provided ``` JenkinsPipelineScript.sh``` for automated CI/CD.
 Ensure Jenkins has access to your Kubernetes cluster and AWS.
 📜 License
 This project is licensed under the MIT License - see the LICENSE file for details.
