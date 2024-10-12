@@ -43,10 +43,10 @@ Terraform
 Jenkins
 🚀 Getting Started
 1. Clone the Repository
-bash
-Copy code
+```
 git clone https://github.com/aniketpuro/Background-Remover-Python-ON-AWS-by-Kubernetes.git
 cd Background-Remover-Python-ON-AWS-by-Kubernetes
+```
 2. Set Up the Environment
 Install the required Python dependencies:
 
