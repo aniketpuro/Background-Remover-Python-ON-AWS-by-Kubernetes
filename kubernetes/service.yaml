@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: background-remover-python-app
+  labels:
+    app: background-remover-python-app
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5100
+    targetPort: 5100
+  selector:
+    app: background-remover-python-app
