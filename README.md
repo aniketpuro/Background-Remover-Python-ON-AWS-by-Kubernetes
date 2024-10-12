@@ -50,29 +50,29 @@ cd Background-Remover-Python-ON-AWS-by-Kubernetes
 2. Set Up the Environment
 Install the required Python dependencies:
 
-bash
-Copy code
+```
 pip install -r requirements.txt
+```
 3. Build and Run the Docker Container
-bash
-Copy code
+```
 docker build -t background-remover-app .
 docker run -p 5000:5000 background-remover-app
+```
 4. Deploy on Kubernetes
 Apply the Kubernetes deployment and service configurations:
 
-bash
-Copy code
+```
 kubectl apply -f kubernetes/deployment.yaml
 kubectl apply -f kubernetes/service.yaml
+```
 5. Set Up AWS Infrastructure
 Navigate to the terraform directory and initialize Terraform:
 
-bash
-Copy code
+```
 cd terraform
 terraform init
 terraform apply
+```
 This will set up the necessary AWS infrastructure, including an EKS cluster for running Kubernetes.
 
 6. Set Up Jenkins Pipeline
