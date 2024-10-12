@@ -8,14 +8,24 @@ Background-Remover-Python-ON-AWS-by-Kubernetes is a Python-based application tha
 ```
 Background-Remover-Python-ON-AWS-by-Kubernetes/
 │
+├── ansible/
+│   ├── inventory              # Ansible inventory file for defining hosts
+│   ├── setup.yml              # Ansible playbook for installing Jenkins, Docker, Trivy, and Docker Scout
+│   └── roles/                 # Optional: for organizing more complex roles
+│
 ├── kubernetes/
 │   ├── deployment.yaml       # Kubernetes deployment configurations
 │   ├── service.yaml          # Kubernetes service for accessing the app
+|   ├── node-svc.yaml         # Kubernetes Node service for exproting Nodeport
 │
 ├── terraform/
 │   ├── main.tf               # Terraform configurations for AWS infrastructure
 │   ├── variables.tf          # Variable definitions for Terraform
 │   ├── outputs.tf            # Outputs for AWS resources
+|   ├── provider.tf           # AWS privider detiles
+|
+├── templates
+|   ├── index.html            # HTML Landing page of Image Background Remover
 │
 ├── Dockerfile                # Dockerfile for containerizing the Python app
 ├── JenkinsPipelineScript.sh  # Jenkins Pipeline script for CI/CD
