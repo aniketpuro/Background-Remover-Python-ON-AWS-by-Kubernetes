@@ -6,7 +6,7 @@ service docker start
 usermod -a -G docker ec2-user
 
 # Clone your Flask app repository
-git clone https://github.com/yeshwanthlm/background-remover-python-app.git
+git 
 cd background-remover-python-app
 
 # Build and run the Docker container

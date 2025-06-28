@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Background Remover - Remove Backgrounds Instantly</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">AI Background</span>
+                    <span class="highlight-text">Remover</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Transform your images with the power of artificial intelligence. 
+                    Remove backgrounds instantly with precision and magic.
+                </p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <div class="feature-icon">⚡</div>
+                        <span>Lightning Fast</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🎯</div>
+                        <span>Pixel Perfect</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🚀</div>
+                        <span>AI Powered</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-message flash-{{ category }}">
+                            <span class="flash-icon">
+                                {% if category == 'danger' %}⚠️{% else %}ℹ️{% endif %}
+                            </span>
+                            {{ message }}
+                            <button class="flash-close" onclick="this.parentElement.style.display='none'">×</button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <div class="upload-container">
+                <div class="upload-header">
+                    <h2>Upload Your Image</h2>
+                    <p>Drag & drop or click to select your image</p>
+                </div>
+                
+                <form method="POST" enctype="multipart/form-data" class="upload-form">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content">
+                            <div class="upload-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </div>
+                            <h3>Drop your image here</h3>
+                            <p>or <span class="browse-text">browse files</span></p>
+                            <div class="file-types">
+                                <span>PNG</span>
+                                <span>JPG</span>
+                                <span>JPEG</span>
+                            </div>
+                        </div>
+                        <input type="file" id="file-upload" name="file" accept="image/*" required>
+                    </div>
+                    
+                    <div class="upload-preview" id="uploadPreview" style="display: none;">
+                        <img id="previewImage" src="/placeholder.svg" alt="Preview">
+                        <div class="preview-info">
+                            <p id="fileName"></p>
+                            <button type="button" class="change-file" onclick="clearPreview()">Change File</button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">Remove Background</span>
+                        <span class="btn-icon">🚀</span>
+                        <div class="btn-loading" style="display: none;">
+                            <div class="spinner"></div>
+                            Processing...
+                        </div>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2>Why Choose Our AI Background Remover?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="card-icon">🤖</div>
+                    <h3>Advanced AI Technology</h3>
+                    <p>Powered by cutting-edge machine learning algorithms for precise background detection and removal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Lightning Fast Processing</h3>
+                    <p>Get your processed images in seconds, not minutes. Our optimized pipeline ensures rapid results.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Professional Quality</h3>
+                    <p>Achieve studio-quality results with clean edges and perfect transparency for all your projects.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">🔒</div>
+                    <h3>Secure & Private</h3>
+                    <p>Your images are processed securely and never stored. Complete privacy guaranteed.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

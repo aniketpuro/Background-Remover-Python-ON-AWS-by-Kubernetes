@@ -49,9 +49,20 @@ def upload_file():
         
         try:
             # Remove background from the image
-            output_image = remove(input_image, post_process_mask=True)
+            output_data = remove(input_image, post_process_mask=True)
             img_io = BytesIO()
-            output_image.save(img_io, 'PNG')
+            # Convert output to PIL Image if it's ndarray, PIL Image, or bytes
+            import numpy as np
+            if isinstance(output_data, bytes):
+                img = Image.open(BytesIO(output_data))
+            elif isinstance(output_data, Image.Image):
+                img = output_data
+            elif isinstance(output_data, np.ndarray):
+                img = Image.fromarray(output_data)
+            else:
+                flash('Unexpected output format from background remover.', 'danger')
+                return redirect(request.url)
+            img.save(img_io, 'PNG')
             img_io.seek(0)
 
             # Return the processed image
@@ -66,4 +77,4 @@ def upload_file():
 
 if __name__ == '__main__':
     # Use this for local development. For production, use gunicorn or a similar WSGI server.
-    app.run(host='0.0.0.0', debug=False, port=5100)
+    app.run(host='0.0.0.0', port=5100, debug=True)
