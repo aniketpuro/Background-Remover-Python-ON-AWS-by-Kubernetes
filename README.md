@@ -1,5 +1,6 @@
 Background-Remover-Python-ON-AWS-by-Kubernetes
 
+![image](https://github.com/user-attachments/assets/24105cd8-295e-454f-a04a-f72a88fd0713)
 
 🚀 Project Overview
 Background-Remover-Python-ON-AWS-by-Kubernetes is a Python-based application that removes image backgrounds using machine learning models. This project is containerized with Docker, orchestrated with Kubernetes, and deployed on AWS for scalable cloud-based performance.
