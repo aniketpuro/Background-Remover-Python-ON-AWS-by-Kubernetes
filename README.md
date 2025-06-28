@@ -67,7 +67,7 @@ pip install -r requirements.txt
 3. Build and Run the Docker Container
 ```
 docker build -t background-remover-app .
-docker run -p 5000:5000 background-remover-app
+docker run -p 5000:5100 background-remover-app
 ```
 4. Deploy on Kubernetes
 Apply the Kubernetes deployment and service configurations:
